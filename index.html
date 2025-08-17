@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>文字/画像 パスワード付き暗号化ツール</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+</head>
+<body>
+<h1>文字/画像 パスワード付き暗号化ツール</h1>
+<div class="section">
+  <h2>🔐 文字列の暗号化・復号化</h2>
+  <textarea id="textInput" rows="4" placeholder="元の文字列または復号後の文字列"></textarea>
+  <div class="char-count" id="textInputCount">0 文字</div>
+<div class="password-container">
+    <input type="password" id="textPassword" placeholder="パスワード" autocomplete="new-password" />
+    <button id="toggleTextPassword" type="button" aria-label="パスワード表示切替">
+<svg id="eyeText" viewBox="0 -960 960 960" width="24" height="24"></svg>
+    </button>
+</div>
+  <textarea id="textEncrypted" rows="4" placeholder="暗号化された文字列または復号対象文字列"></textarea>
+  <div class="char-count" id="textEncryptedCount">0 文字</div>
+  <div class="buttons-row">
+    <button id="encryptTextBtn">文字列を暗号化</button>
+    <button id="decryptTextBtn">文字列を復号</button>
+    <button id="copyTextEncrypted">暗号文をコピー</button>
+  </div>
+</div>
+<div class="section">
+  <h2>🖼️ 画像の暗号化・復号化</h2>
+  <div id="imageDropArea">ここに画像ファイルをドラッグ＆ドロップ、またはクリックして選択してください</div>
+  <input type="file" id="imageInput" accept="image/*" style="display:none" />
+  <div>
+    <label for="imageResizeSlider"><strong>画像サイズ調整 (1〜100%)：</strong></label>
+  </div>
+  <div class="slider-number-container">
+    <input type="range" id="imageResizeSlider" min="1" max="100" step="0.1" value="100" />
+    <input type="number" id="imageResizeNumber" min="1" max="100" step="0.1" value="100" />
+  </div>
+  <div class="note">
+    ※ スライダーまたは数字入力で画像の縮小率を調整します。画像を小さくすることで文字の量を減らせます。
+  </div>
+  <div class="password-container">
+    <input type="password" id="imagePassword" placeholder="パスワード" autocomplete="new-password" />
+    <button id="toggleImagePassword" type="button" aria-label="パスワード表示切替">
+<svg id="eyeImage" viewBox="0 -960 960 960" width="24" height="24"></svg>
+    </button>
+  </div>
+  <textarea id="imageEncrypted" rows="4" placeholder="暗号化された文字列または復号後の文字列"></textarea>
+  <div class="char-count" id="imageEncryptedCount">0 文字</div>
+  <div class="buttons-row">
+    <button id="encryptImageBtn">画像を暗号化</button>
+    <button id="decryptImageBtn">画像を復号</button>
+    <button id="copyImageEncrypted">暗号文をコピー</button>
+  </div>
+  <img id="imagePreview" src="" alt="画像プレビュー" />
+</div>
+<script src="javascript/script.js"></script>
+</body>
+</html>
